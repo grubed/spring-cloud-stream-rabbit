@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: windbase1
+  cloud:
+    stream:
+      bindings:
+        input:
+          binder: rabbit
+          destination: sample-sink-data
+          group: orderReceiveGroup1
+        output:
+          binder: rabbit
+          destination: sample-sink-data
+        rabbit1:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+        rabbit2:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+server:
+  port: 8082
+
